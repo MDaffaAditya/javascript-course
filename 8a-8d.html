@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Exercises Objects</title>
+</head>
+<body>
+    <script>
+        product = {
+            name: 'basketball',
+            price: 2095,
+            ['delivery-time']: '3 Days'
+        }
+        console.log(product)
+        console.log(product.price + 500);
+
+        const product1 = {
+            name: 'pillow',
+            price: 4000
+        }
+
+        const product2 = {
+            name: 'laptop',
+            price: 2000
+        }
+
+        function comparePrice(product1, product2) {
+            if (product1.price < product2.price) {
+                return `Lebih murah ${JSON.stringify(product1)}`
+            } else {
+                return `Lebih murah${JSON.stringify(product2)}`
+            }
+        }
+
+        console.log(comparePrice(product1, product2))
+    </script>
+</body>
+</html>

@@ -15,11 +15,31 @@
         playGame('paper')
     ">Paper</button>
 
-    <button onclick="
+    <button onclick="   
        playGame('scissors');
     ">Scissors</button>
 
+    <button onclick="
+    localStorage.removeItem('score');
+    alert(`You've been reset the score`)
+    ">Reset Score</button>
+
     <script>
+        //dibawah ini kita memakai 'Default Operator ||'
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            wins: 0,
+            losses: 0,
+            ties: 0
+        }; //jika score truthy (ada scorenya maka akan pakai left side) dan jika kiri falsy maka kita akan memakai right side 
+
+        // if (!score) {  //null sama dengan keluarga falsy, jadi dapat menggunakan tanda pentung saja '!'
+        //     score = {
+        //         wins: 0,
+        //         losses: 0,
+        //         ties: 0
+        //     }
+        // }
+
         function playGame(playerMove) {
             const computerMove = pickComputerMove();
             let result = '';
@@ -51,8 +71,19 @@
                     result = 'You win.';
                 }
             }
+
+            if (result === 'You win.') {
+                score.wins = score.wins + 1;
+            } else if (result === 'You lose.') {
+                score.losses += 1;
+            } else if (result === 'Tie.') {
+                score.ties += 1;
+            }
+
+            localStorage.setItem('score', JSON.stringify(score)); //localStorage only support string
             
-            alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
+            alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
+Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
         }
 
         function pickComputerMove() {

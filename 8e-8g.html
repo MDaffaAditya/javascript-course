@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8e - 8h Exercises</title>
+</head>
+<body>
+    <script>
+        // 8e
+        const product1 = {
+            name: 'laptop',
+            price: 2000
+        }
+
+        const product2 = {
+            name: 'laptop',
+            price: 2000
+        }
+
+
+        //Ini dibawah bukan boolean jadi salah
+        function isSameProduct(product1, product2) {
+            if (JSON.stringify(product1) === JSON.stringify(product2)) {
+                return 'True'
+            } else {
+                return 'False'
+            }
+        }
+        console.log(isSameProduct(product1, product2))
+
+        function produkSama(product1, product2) {
+            return JSON.stringify(product1) === JSON.stringify(product2)
+        }
+        console.log(produkSama(product1, product2))
+
+
+        // 8f
+        const sapaan = {
+            pagi: 'Good Morning'
+        }
+
+        sapaan.pagi = sapaan.pagi.toLowerCase();
+        console.log(sapaan)
+
+        // 8g
+        const text = 'test'
+        const repeated = text.repeat(2)
+        console.log(repeated)
+        
+    </script>
+</body>
+</html>
