@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heads and Tails</title>
+</head>
+<body>
+    <button onclick="
+        playFlip('heads')   
+    ">Heads</button>
+    <button onclick="
+        playFlip('tails')
+    ">Tails</button>
+    <button onclick="
+        resetScore()
+    ">Reset</button>
+    <script>
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            wins: 0,
+            losses: 0
+        }
+
+        function playFlip(guess) {
+            const result = Math.random() < 0.5 ? 'heads' : 'tails';
+
+            console.log(result === guess ? 'You win!' : 'You lose!')
+
+            if (result === guess) {
+                score.wins++
+            } else {
+                score.losses++
+            }
+
+            console.log(score)
+            localStorage.setItem('score', JSON.stringify(score));
+        }
+
+        function resetScore() {
+            localStorage.removeItem('score');
+            score = {
+                wins: '0',
+                losses: '0'
+            }
+            console.log(`You've been reset the score`);
+        }
+    </script>
+</body>
+</html>
