@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+
+    <script>
+        // const product = { 
+        //     name: 'socks', //Property-Value Pair
+        //     price: 1090
+        // };
+        // console.log(product);
+        // console.log(product.name); //Dot Notation
+        // console.log(product.price);
+        
+
+        // product.name = 'cotton socks'; //Dot Notation
+        // console.log(product);
+
+        // product.newProperty = true; //Dot Notation
+        // console.log(product);
+
+        // delete product.name;
+        // console.log(product);
+
+        const product2 = {
+            name: 'shirt',
+            'delivery-time': '1 day', //Bracket opsional, u can use string only
+            rating: { //Nested Object
+                stars: 4.5,
+                count: 87
+            },
+            fun: function function1() {
+                console.log('function inside object');
+            },
+            'fun-2': function function2() { //Function inside object = Method
+                console.log('function bracket notation')
+            }
+        };
+        console.log(product2);
+        console.log(product2.name); //Dot Notation
+        console.log(product2['name']); //Bracket Notation (Lets us use properties that don't work with dot notation)
+        // console.log(product2.delivery-time); //We Can't Use This 
+        console.log(product2['delivery-time']);
+
+        console.log(product2.rating.count);
+        product2.fun();
+        product2['fun-2']();
+
+        console.log(typeof console.log);
+
+        console.log(JSON.stringify(product2));
+        const jsonString = JSON.stringify(product2);
+        console.log(JSON.parse(jsonString));
+    </script>
+</body>
+</html>

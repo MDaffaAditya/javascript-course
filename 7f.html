@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7f</title>
+</head>
+<body>
+
+
+    <script>
+        function convertToFahrenheit(celsius, unit) {
+            if (unit === 'C' || unit === 'c') {
+                return (celsius * 9 / 5) + 32 + 'F';
+            } else if (unit === 'F' || unit === 'f') {
+                return celsius + 'F'
+            } else {
+                return 'Unit tidak dikenal'
+            }
+        }
+
+        const celsius = convertToFahrenheit(25, 'C');
+        console.log(celsius);
+
+
+        
+        function convertToCelsius(fahrenheit, unit) {
+            if (unit === 'F' || unit === 'f') {
+                return (fahrenheit - 32) * 5 / 9 + 'C';
+            } else if (unit === 'C' || unit === 'c') {
+                return fahrenheit + 'C';
+            } else {
+                return 'Unit tidak dikenal';
+            }
+        }
+
+        const fahrenheit = convertToCelsius(86, 'F');
+        console.log(fahrenheit);
+
+    </script>
+</body>
+</html>
