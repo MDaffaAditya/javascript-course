@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <style>
+      body {
+        background-color: black;
+        font-family: Arial;
+      }
+
+      .calculation {
+        color: white;
+        font-size: 45px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+      
+      .calculator-button {
+        height: 60px;
+        width: 60px;
+        border-radius: 60px;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+
+      .gray-button {
+        background-color: rgb(51, 51, 51);
+        color: white;
+      }
+
+      .orange-button {
+        background-color: rgb(254, 160, 10);
+        color: white;
+      }
+
+      .clear-button {
+        font-size: 17px;
+      }
+
+
+  </style>
+  <head></head>
+  <title>9j</title>
+  <body>
+    <p class="js-calculator calculation"></p>
+    <p>
+      <button onclick="
+        updateCalculation('1');
+      " class="calculator-button gray-button">1</button>
+
+      <button onclick="
+        updateCalculation('2');
+      " class="calculator-button gray-button">2</button>
+
+      <button onclick="
+        updateCalculation('3');
+      " class="calculator-button gray-button">3</button>
+
+      <button onclick="
+        updateCalculation(' + ');
+      " class="calculator-button orange-button">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('4');
+      " class="calculator-button gray-button">4</button>
+
+      <button onclick="
+        updateCalculation('5');
+      " class="calculator-button gray-button">5</button>
+
+      <button onclick="
+        updateCalculation('6');
+      " class="calculator-button gray-button">6</button>
+
+      <button onclick="
+        updateCalculation(' - ');
+      " class="calculator-button orange-button">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('7');
+      " class="calculator-button gray-button">7</button>
+
+      <button onclick="
+        updateCalculation('8');
+      " class="calculator-button gray-button">8</button>
+
+      <button onclick="
+        updateCalculation('9');
+      " class="calculator-button gray-button">9</button>
+
+      <button onclick="
+        updateCalculation(' * ');
+      " class="calculator-button orange-button">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('0');
+      " class="calculator-button gray-button">0</button>
+
+      <button onclick="
+        updateCalculation('.');
+      " class="calculator-button gray-button">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+        console.log(calculation);
+        localStorage.setItem('calculation', JSON.stringify(calculation));
+        document.querySelector('.js-calculator').innerText = calculation;
+
+      " class="calculator-button gray-button">=</button>
+
+      <button onclick="
+        updateCalculation(' / ');
+      " class="calculator-button orange-button">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        clearCalculation();
+      " class="calculator-button gray-button clear-button">Clear</button>
+    </p>
+
+    <script>
+      let calculation = JSON.parse(localStorage.getItem('calculation')) || '';
+
+      function updateCalculation(value) {
+        calculation += value;
+        console.log(calculation);
+        document.querySelector('.js-calculator').innerText = calculation;
+        localStorage.setItem('calculation', JSON.stringify(calculation));
+      }
+      
+
+      function displayMath() {
+        document.querySelector('.js-calculator').innerText = calculation;
+      }
+
+      function clearCalculation() {
+        calculation = ''
+        document.querySelector('.js-calculator').innerText = calculation;
+        localStorage.removeItem('calculation');
+      }
+
+      displayMath()
+    </script>
+  </body>
+</html>
