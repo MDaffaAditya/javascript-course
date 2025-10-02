@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises DOM 9a - 9c</title>
+</head>
+<body>
+    <button>9a</button>
+    <button onclick="
+        sembilan()
+    " class="sembilan">9b</button>
+<br>
+    <!-- 9c -->
+     <button onclick="
+        headsTails(event)
+     ">heads</button>
+     <button onclick="
+        headsTails(event)
+     ">tails</button>
+    <p class="js-chose"></p>
+    <script>
+        // 9a
+        console.log(document.querySelector('button'));
+    
+        // 9b
+        function sembilan() {
+            const sembilanButton = document.querySelector('.sembilan');
+
+            if (sembilanButton.innerText === '9b') {
+                sembilanButton.innerHTML = '9b done!';
+            } else {
+                sembilanButton.innerHTML = '9b';
+            }
+        }
+
+        // 9c
+        function headsTails(event) {
+            const choice =  event.target.innerText
+            document.querySelector('.js-chose').innerText = `You choose: ${choice}`;
+        }
+
+        
+
+    </script>
+</body>
+</html>
