@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11a</title>
+</head>
+<body>
+
+    <script>
+        const myArray = [10, 20, 30];
+        myArray[2] = 99;
+        console.log(myArray);
+
+        let array2 = [1, 20, 22, 24, 5]
+        let wave = ['hi', 'hello', 'good']
+        function getLastValue(array) {
+            return array[array.length - 1];
+        }
+
+        console.log(getLastValue(array2))
+        console.log(getLastValue(wave));
+
+        function arraySwap(array) {
+            [array[0], array[array.length - 1]] = [array[array.length - 1], array[0]];
+            return array;
+        }
+
+        console.log(arraySwap(array2));
+        console.log(arraySwap(wave));
+    </script>
+</body>
+</html>

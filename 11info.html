@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info 11</title>
+</head>
+<body>
+    <input placeholder="put here" class="js-input-name">
+    <button onclick="
+        addTodo();
+    ">Add</button>
+    <div class="js-todo-list"></div>
+    <script>
+        // Awal: keranjang belanja kosong
+        let cart = [];
+
+        // 1. Tambah barang
+        cart.push("Apel");        // ["Apel"]
+        cart.push("Jeruk");       // ["Apel", "Jeruk"]
+        cart.unshift("Mangga");   // ["Mangga", "Apel", "Jeruk"]
+
+        console.log("Keranjang:", cart);
+
+        // 2. Hapus barang
+        cart.pop();   // hapus dari belakang → ["Mangga", "Apel"]
+        cart.shift(); // hapus dari depan → ["Apel"]
+
+        console.log("Setelah dihapus:", cart);
+
+        // 3. Cari barang
+        console.log("Ada Apel?", cart.includes("Apel")); // true
+        console.log("Index Apel:", cart.indexOf("Apel")); // 0
+
+        // 4. Ubah data (map → uppercase semua)
+        let upperCart = cart.map(item => item.toUpperCase());
+        console.log("Uppercase:", upperCart);
+
+        // 5. Filter data (hapus yang namanya kurang dari 5 huruf)
+        let filtered = cart.filter(item => item.length >= 5);
+        console.log("Filter:", filtered);
+
+        // 6. Gabung dengan array lain
+        let moreItems = ["Pisang", "Semangka"];
+        let merged = cart.concat(moreItems);
+        console.log("Gabung:", merged);
+
+        // 7. Join jadi string
+        console.log("String:", merged.join(", "));
+
+        // 8. Sort & Reverse
+        merged.sort();
+        console.log("Sort:", merged);
+        merged.reverse();
+        console.log("Reverse:", merged);
+
+        todoList = ['make dinner', 'wash dishes', 'serve dinner'];
+        renderTodoList();
+        function renderTodoList() {
+            let todoListHTML = '';
+
+            for (let i = 0; i < todoList.length; i++) {
+                const todo = todoList[i];
+                const html = `<p>${todo}</p>`;
+                todoListHTML += html;
+            }
+            document.querySelector('.js-todo-list')
+                .innerHTML = todoListHTML;
+        }
+
+        function addTodo() {
+            const inputElement = document.querySelector('.js-input-name');
+            const name = inputElement.value;
+
+            todoList.push(name);
+
+            inputElement.value;
+            renderTodoList();
+        }
+    </script>
+</body>
+</html>
