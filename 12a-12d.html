@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12a - 12d</title>
+</head>
+<body>
+    <button class="js-update js-update-button">Finish</button>
+    <script>
+        // 12a
+        const add = function() {
+            console.log(2 + 3)
+        }
+        add();
+        add();
+
+        // 12b
+        function runTwice(fun) {
+            fun();
+            fun();
+        }
+        runTwice(function() {
+            console.log('12b');
+        })
+        runTwice(function() {
+            console.log(5);
+        })
+
+
+        // 12c and 12d
+        // document.querySelector('.js-update-button')
+        //     .addEventListener('click', () => {
+        //         updateButton();
+        //     });
+
+        // function updateButton() {
+        //     const button = document.querySelector('.js-update');
+
+        //     button.innerHTML = 'Loading...';
+
+        //     setTimeout(() => {
+        //         button.innerHTML = 'Finished';
+        //     }, 1000)
+        // };
+
+        const button = document.querySelector('.js-update');
+
+        button.addEventListener('click', () => {
+            button.innerHTML = 'Loading...';
+
+            setTimeout(() => {
+                button.innerHTML = 'Finished';
+            }, 1000);
+        })
+    </script>
+</body>
+</html>
